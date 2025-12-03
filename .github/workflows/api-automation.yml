@@ -32,7 +32,7 @@ jobs:
         run: npm install
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test > playwright-test-output.log 2>&1
 
       - name: Upload Playwright artifacts
         if: always()
@@ -42,4 +42,5 @@ jobs:
           path: |
             api-automation/playwright-report/**
             api-automation/test-results/**
+            playwright-test-output.log
           retention-days: 7
