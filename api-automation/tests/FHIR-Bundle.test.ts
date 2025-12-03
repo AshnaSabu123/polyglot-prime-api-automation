@@ -20,7 +20,7 @@ console.log(`FHIR Bundle Validate Endpoint: ${endpoint}`);
 
 const errors: string[] = [];
 
-test.only("TC 1: Verify validation error for bundle with an encounter reference but no encounter resource included", async ({ request }) => {
+test("TC 1: Verify validation error for bundle with an encounter reference but no encounter resource included", async ({ request }) => {
     test.setTimeout(50000);
     logger.info(`Starting test: TC 1 - Verify validation error for bundle with an encounter reference but no encounter resource included`);
     await runBundleValidationTest(
@@ -371,3 +371,4 @@ test("TC 29: Verify validation error for a Task that does not have status reason
     logger.info("TC 29 - Test execution completed");
 
 });
+
