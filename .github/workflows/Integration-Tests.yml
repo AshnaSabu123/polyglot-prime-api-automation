@@ -10,7 +10,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: app/polyglot-prime/nexus-ingestion-api
+        working-directory: app/polyglot-prime-api-automation/nexus-ingestion-api
 
     steps:
       - name: Checkout repository
@@ -32,5 +32,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nexus-ingestion-api-failsafe-report
-          path: app/polyglot-prime/nexus-ingestion-api/target/site/failsafe-report.html
+          path: app/polyglot-prime-api-automation/nexus-ingestion-api/target/site/failsafe-report.html
           if-no-files-found: warn
