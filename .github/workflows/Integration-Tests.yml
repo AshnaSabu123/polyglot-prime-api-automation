@@ -10,7 +10,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: app/polyglot-prime-api-automation/nexus-ingestion-api
+        working-directory: nexus-ingestion-api
 
     steps:
       - name: Checkout repository
@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Integration Tests
         run: |
-         cd polyglot-prime-api-automation/nexus-ingestion-api
+         cd nexus-ingestion-api
          mvn clean verify site -DskipUTs=true -DgenerateReports=false
 
       - name: Upload Failsafe Report
