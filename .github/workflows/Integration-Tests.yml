@@ -24,7 +24,7 @@ jobs:
           cache: maven
 
       - name: Run Integration Tests
-       run: |
+        run: |
          cd polyglot-prime-api-automation/nexus-ingestion-api
          mvn clean verify site -DskipUTs=true -DgenerateReports=false
 
