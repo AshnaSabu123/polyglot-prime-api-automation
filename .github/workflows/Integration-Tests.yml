@@ -47,14 +47,14 @@ jobs:
           REPORT_DIR="nexus-ingestion-api/target/failsafe-reports"
 
           if [ -d "$REPORT_DIR" ]; then
-           TOTAL=$(grep -h "<testsuite" $REPORT_DIR/*.xml | grep -o 'tests="[0-9]*"' | cut -d'"' -f2 | awk '{s+=$1} END {print s}')
-           FAILURES=$(grep -h "<testsuite" $REPORT_DIR/*.xml | grep -o 'failures="[0-9]*"' | cut -d'"' -f2 | awk '{s+=$1} END {print s}')
-           ERRORS=$(grep -h "<testsuite" $REPORT_DIR/*.xml | grep -o 'errors="[0-9]*"' | cut -d'"' -f2 | awk '{s+=$1} END {print s}')
+          TOTAL=$(grep -h "<testsuite" $REPORT_DIR/*.xml | grep -o 'tests="[0-9]*"' | cut -d'"' -f2 | awk '{s+=$1} END {print s}')
+          FAILURES=$(grep -h "<testsuite" $REPORT_DIR/*.xml | grep -o 'failures="[0-9]*"' | cut -d'"' -f2 | awk '{s+=$1} END {print s}')
+          ERRORS=$(grep -h "<testsuite" $REPORT_DIR/*.xml | grep -o 'errors="[0-9]*"' | cut -d'"' -f2 | awk '{s+=$1} END {print s}')
 
            echo "## Integration Test Results" >> $GITHUB_STEP_SUMMARY
            echo "- Total: $TOTAL" >> $GITHUB_STEP_SUMMARY
            echo "- Failures: $FAILURES" >> $GITHUB_STEP_SUMMARY
            echo "- Errors: $ERRORS" >> $GITHUB_STEP_SUMMARY
-          else
-          echo "No failsafe reports found" >> $GITHUB_STEP_SUMMARY
-       fi
+           else
+           echo "No failsafe reports found" >> $GITHUB_STEP_SUMMARY
+           fi
